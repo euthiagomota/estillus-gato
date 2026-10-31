@@ -10,13 +10,13 @@ export function StoreLocation() {
   return (
     <section id="nossa-loja" aria-labelledby="loja-title" className="bg-paper pb-16 pt-10 md:pb-20">
       <div className="container-page grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="on-dark relative min-h-[300px] overflow-hidden bg-graphite lg:min-h-[420px]">
+        <div className="on-dark relative min-h-[220px] overflow-hidden bg-graphite lg:min-h-[420px]">
           <img
             src="/assets/loja/Vitrine Moderna da Estillus Gato.png"
             alt="Fachada da loja Estillus Gato em Casa Amarela, Recife"
-            className="h-full w-full object-cover"
+            className="h-[220px] w-full object-cover object-center sm:h-[320px] lg:h-full"
           />
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-[160px] bg-[#111111]" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-[68px] bg-[#111111]/95 sm:h-[100px] lg:h-[160px]" />
         </div>
 
         <div className="flex flex-col justify-center border border-[#d9d9d9] border-l-0 bg-white px-[var(--gutter)] py-12 lg:px-16 lg:py-16 xl:px-24">
