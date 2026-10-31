@@ -147,6 +147,12 @@
 /* Mobile: modelo à frente do título, cabeça sobrepondo as letras, base com fade suave */
 @media (max-width: 767px) {
   .hero__stage { padding-top: 8px; }
+  .hero__wordmark {
+    margin-left: 0;
+    font-size: clamp(48px, 18cqw, 150px);
+    text-align: center;
+    transform: none;
+  }
   .hero__model-wrap {
     position: relative;
     height: min(118vw, 520px);
