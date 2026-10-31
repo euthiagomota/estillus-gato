@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Estillus Gato favicon">
+  <rect width="512" height="512" rx="100" fill="#111111"/>
+  <circle cx="256" cy="256" r="196" fill="none" stroke="#f3f3f3" stroke-width="3" opacity="0.75"/>
+  <g fill="#ffffff">
+    <path d="M138 212c0-32 26-58 58-58h20l18-26c5-8 14-13 24-13h12c10 0 19 5 24 13l18 26h20c32 0 58 26 58 58v64c0 25-16 48-39 55l-38 11-36 87h-30l-36-87-38-11c-23-7-39-30-39-55v-64zm54 12c0 19 15 34 34 34s34-15 34-34c0-18-15-33-34-33s-34 15-34 33zm126 0c0 19 15 34 34 34s34-15 34-34c0-18-15-33-34-33s-34 15-34 33zm-62 118h64c7 0 12 5 12 12v8h-88v-8c0-7 5-12 12-12z"/>
+  </g>
+  <g fill="#ffffff" font-family="Montserrat, Arial, sans-serif" font-weight="700" text-anchor="middle">
+    <text x="256" y="310" font-size="76">estillus</text>
+    <text x="256" y="390" font-size="70">gato</text>
+  </g>
+</svg>

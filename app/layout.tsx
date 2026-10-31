@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: "Estillus Gato | Moda Masculina em Recife — Casa Amarela",
   description:
     "Conheça a Estillus Gato, loja de moda masculina em Casa Amarela, Recife. Explore looks, acompanhe as novidades e entre em contato pelo WhatsApp.",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
   keywords: [
     "moda masculina Recife",
     "loja de roupa masculina Recife",

@@ -128,7 +128,9 @@
   white-space: nowrap;
   color: var(--color-ink);
   margin: 0;
+  margin-left: clamp(-26px, -1.4cqw, -64px);
   margin-right: -0.06em;
+  transform: translateX(-1.7%);
   user-select: none;
   position: relative;
   z-index: 1;
@@ -166,7 +168,7 @@
   .hero__stage { padding-top: clamp(8px, 1.4cqw, 20px); }
   .hero__model-wrap { display: contents; }
   .hero__model {
-    left: 43.5%;
+    left: 47%;
     bottom: 0;
     height: calc(100% + 5.6cqw);
     width: auto;
