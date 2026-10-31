@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Design tokens ---------- */
+:root {
+  --color-ink: #111111;
+  --color-graphite: #1c1c1c;
+  --color-muted: #4a4a4a;
+  --color-paper: #f5f3ef;
+  --color-surface: #eeece7; /* variação sutil do off-white para cards */
+  --color-line: #d9d9d9;
+  --color-white: #ffffff;
+  --color-sand: #d8cbb8; /* só detalhes */
+
+  --page-max: 1440px;
+  --gutter: 20px;
+  --space-section: clamp(48px, 6vw, 88px);
+  --header-h: 72px;
+  --anchor-offset: 16px;
+}
+@media (min-width: 768px) {
+  :root { --gutter: 40px; --header-h: 88px; }
+}
+@media (min-width: 1280px) {
+  :root { --gutter: 64px; --header-h: 96px; }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    background: var(--color-paper);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: clip; /* nenhuma barra horizontal */
+    -webkit-font-smoothing: antialiased;
+  }
+  section[id] { scroll-margin-top: var(--anchor-offset); }
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+  }
+  .on-dark :focus-visible { outline-color: #ffffff; }
+  ::selection { background: var(--color-ink); color: #fff; }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: var(--page-max);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+  .eyebrow {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .rule { display: block; width: 28px; height: 2px; background: var(--color-ink); }
+}
+
+.look-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition-delay: var(--delay, 0ms);
+}
+
+.look-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.look-card button {
+  display: block;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.look-modal-backdrop {
+  background: rgba(17, 17, 17, 0.82);
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .look-card {
+    transform: translateY(20px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .look-card {
+    transition: none;
+  }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  z-index: 1; /* modelo passa por cima do header */
+}
+/* container = largura útil do grid → unidades cqw seguem o grid (máx. 1440px) */
+.hero__inner { position: relative; container-type: inline-size; }
+.hero__stage { position: relative; }
+
+.hero__wordmark {
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.06em;
+  line-height: 0.84;
+  /* tamanho fluido pelo container (hero ocupa a largura útil do grid) */
+  font-size: clamp(56px, 21cqw, 300px);
+  white-space: nowrap;
+  color: var(--color-ink);
+  margin: 0;
+  margin-right: -0.06em;
+  user-select: none;
+  position: relative;
+  z-index: 1;
+}
+.hero__model {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
+  height: auto;
+}
+.hero__copy { position: relative; z-index: 3; }
+
+/* Mobile: modelo à frente do título, cabeça sobrepondo as letras, base com fade suave */
+@media (max-width: 767px) {
+  .hero__stage { padding-top: 8px; }
+  .hero__model-wrap {
+    position: relative;
+    height: min(118vw, 520px);
+    margin-top: -9vw;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .hero__model {
+    right: -2vw;
+    bottom: 0;
+    height: 100%;
+    width: auto;
+    -webkit-mask-image: linear-gradient(to bottom, #000 84%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 84%, transparent 100%);
+  }
+}
+/* Tablet/Desktop: composição editorial */
+@media (min-width: 768px) {
+  .hero__stage { padding-top: clamp(8px, 1.4cqw, 20px); }
+  .hero__model-wrap { display: contents; }
+  .hero__model {
+    left: 43.5%;
+    bottom: 0;
+    height: calc(100% + 5.6cqw);
+    width: auto;
+  }
+}
+
+/* Redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
+/* Scroll-snap da galeria no mobile */
+.snap-row { scrollbar-width: thin; scrollbar-color: var(--color-ink) var(--color-line); }
